@@ -57,8 +57,8 @@ The project includes a **ChatGPT-style Streamlit interface** with clear separati
 
 📸 **Streamlit Screenshot**
 
-```md
-![Streamlit UI](pics/streamlit_demo.png)
+```
+![Streamlit UI](images/streamlit_demo.png)
 ```
 
 ---
@@ -109,8 +109,8 @@ The entire agent workflow is traced using **LangSmith**, providing:
 
 📸 **LangSmith Trace Screenshot**
 
-```md
-![LangSmith Trace](pics/langsimth.png)
+```
+![LangSmith Trace](images/langsmith.png)
 ```
 
 ---
@@ -120,17 +120,37 @@ The entire agent workflow is traced using **LangSmith**, providing:
 Below is a **logic-level view** of the agent workflow (abstracted from execution details):
 
 ```mermaid
-graph TD
-    router --> rag
-    router --> web
-    rag --> merge
+flowchart TD
+    router[Router]
+
+    rag[RAG Retrieval]
+    web[Web Search]
+    merge[Merge Context]
+    summarize[Summarize Context]
+    draft[Generate Draft]
+    critic[Critic]
+    refine[Refine Answer]
+    memory[Update Memory]
+
+    %% Entry
+    router -->|needs_rag| rag
+    router -->|needs_web| web
+
+    %% Conditional routing
+    rag -->|needs_web| web
+    rag -->|else| merge
     web --> merge
-    merge --> summarize
-    merge --> draft
+
+    %% Post-processing
+    merge -->|needs_summarize| summarize
+    merge -->|else| draft
     summarize --> draft
+
+    %% Self-critique loop
     draft --> critic
     critic --> refine
     refine --> memory
+
 ```
 
 ---
