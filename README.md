@@ -1,6 +1,6 @@
 # 🧠 Multi-Tool Agentic RAG System
 
-### *(LangGraph · LangChain · Tavily · FAISS · FastAPI · Streamlit · LangSmith)*
+### *(LangGraph · LangChain · Tavily · FAISS · FastAPI · Streamlit)*
 
 A **production-oriented Agentic AI system** built with **LangGraph** and **LangChain**, featuring **multi-tool orchestration**, **RAG**, **web search via Tavily**, **summarization**, **self-reflection**, **conversation memory**, and **full observability**.
 
@@ -108,6 +108,7 @@ The entire agent workflow is traced using **LangSmith**, providing:
 📸 **LangSmith Trace Screenshot**
 
 ![LangSmith Trace](images/langsmith.png)
+
 
 ---
 
