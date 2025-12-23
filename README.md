@@ -57,9 +57,7 @@ The project includes a **ChatGPT-style Streamlit interface** with clear separati
 
 📸 **Streamlit Screenshot**
 
-```
 ![Streamlit UI](images/streamlit_demo.png)
-```
 
 ---
 
@@ -109,9 +107,7 @@ The entire agent workflow is traced using **LangSmith**, providing:
 
 📸 **LangSmith Trace Screenshot**
 
-```
 ![LangSmith Trace](images/langsmith.png)
-```
 
 ---
 
